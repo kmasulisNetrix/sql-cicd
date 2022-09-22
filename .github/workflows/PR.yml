@@ -1,0 +1,16 @@
+# This is a basic workflow to help you get started with Actions
+
+name: PR
+
+# .github/workflows/sql-deploy.yml
+on: 
+  pull_request:
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    
+    - run: dotnet build /p:NetCoreBuild=true /p:OutputPath=./Output ./DatabaseProjectTestDB.sqlproj
+  
